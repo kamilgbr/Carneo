@@ -8,6 +8,11 @@ TYPE = (
     ('elektryczny', 'Elektryczny')
 )
 
+AD_SOURCE = (
+    ('otomoto', 'Otomoto.pl'),
+    ('autocentrum', 'AutoCentrum.pl')
+)
+
 
 class Cars(models.Model):
     brand = models.CharField(max_length=255)
@@ -15,5 +20,5 @@ class Cars(models.Model):
     engine_type = models.CharField(choices=TYPE, max_length=255)
     engine_power = models.IntegerField()
     url = models.URLField()
-    ad_source = models.URLField()
-    img_source = models.URLField(null=True)
+    ad_source = models.CharField(choices=AD_SOURCE, max_length=255)
+    img_source = models.URLField(null=True, blank=True)
